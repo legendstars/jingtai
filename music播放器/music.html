@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/music.css"/>
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <!--<script src="js/music.js"></script>-->
+    <script src="js/jquery.js"></script>
+    <script src="js/play.js"></script>
+
+</head>
+<body>
+    <div class="box">
+        <audio src="music/Somebody Else's Lover.mp3" id="audio"></audio>
+        <div class="lyrics">
+
+            <ul>
+
+            </ul>
+        </div>
+        <div class="list">
+            <section class="liebiao">
+                <h1>播放列表</h1>
+                <ul class="one">
+                    <li>
+                        <span>状态</span>
+                        <span>歌名</span>
+                        <span>歌手</span>
+                        <span>专辑</span>
+                        <span>删除</span>
+                    </li>
+                </ul>
+                <ul>
+
+                </ul>
+
+            </section>
+            <canvas id="canvas" width="600px" height="200px"></canvas>
+        </div>
+        <div class="btn">
+            <ul>
+                <li class="previous">
+                    <span class="iconfont icon-shangyishou"></span>
+                </li>
+                <li class="play">
+                    <span class="iconfont icon-bofang"></span>
+                </li>
+                <li class="next">
+                    <span class="iconfont icon-xiayishou"></span>
+                </li>
+            </ul>
+            <div class="img"></div>
+            <div class="status">
+                <div class="xinxi">
+                    <span>Juliette Claire</span>
+                    <span>-</span>
+                    <span>Somebody Else's Lover</span>
+                </div>
+
+                <div class="progress">
+                    <div class="tiao">
+                        <div class="load"></div>
+                        <div class="played"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="time">
+                        <span>00:00</span>
+                        <span>/</span>
+                        <span>00:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="yinliang">
+                <span class="iconfont icon-yinliang1"></span>
+                <div class="progress">
+                    <div class="tiao">
+                        <div class="load"></div>
+                        <div class="played"></div>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <span class="iconfont icon-caidan"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="js/main.js"></script>

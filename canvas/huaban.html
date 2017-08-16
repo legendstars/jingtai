@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<script src="canvas.js"></script>-->
+    <script src="js/jquery.js"></script>
+    <script src="js/huaban.js"></script>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    .canvas{
+        width:1000px;
+        height:150px;
+        margin:0 auto;
+        border:1px solid #000;
+    }
+    .gongneng {
+        width:200px;
+        height:100%;
+        float:left;
+        border:1px solid #000;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .gongju{
+        width:800px;
+        height:100%;
+        float:left;
+        border:1px solid #000;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .gongju > div:first-child{
+        width:40%;
+        height:100%;
+        float:left;
+    }
+    .gongju > div:nth-child(2){
+        width:10%;
+        height:100%;
+        float:left;
+    }
+    .gongju > div:nth-child(3){
+        width:10%;
+        height:100%;
+        float:left;
+    }
+    .gongju > div:nth-child(3) p{
+        margin-top:10px;
+    }
+
+    .gongju > div:nth-child(4){
+        width:10%;
+        height:100%;
+        float:left;
+    }
+    .gongju > div:nth-child(4) div{
+        margin-top:10px;
+    }
+
+    .gongju > div:nth-child(5){
+        width:30%;
+        height:100%;
+        float:left;
+        text-align: left;
+    }
+    .gongju > div:nth-child(5) >div{
+        width:100%;
+        height:25%;
+    }
+    .gongju > div:nth-child(5) span{
+        float:left;
+        display:block;
+        width:50%;
+        margin-top:10px;
+    }
+    .gongju > div:nth-child(5) input{
+        float:left;
+        width:50%;
+        display: block;
+        box-sizing: border-box;
+    }
+    div[type]{
+        width:100px;
+        height:20px;
+        float: left;
+        background: red;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 10px;
+        margin-top:15px;
+        cursor: pointer;
+    }
+    .gongneng div:first-of-type{
+        margin-top:5px;
+    }
+    .gongneng div{
+        margin-left:50px;
+    }
+    .gongju input{
+        width:55%;
+        margin-top:10px;
+    }
+    .way div{
+        width:100%;
+        height:20px;
+        float: left;
+        background: red;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 10px;
+        margin-top:15px;
+        cursor: pointer;
+    }
+    .way div:first-child{
+        margin-top:45px;
+    }
+    .way div:last-child{
+        margin-top:25px;
+    }
+    .gongju > div:nth-child(4) input:last-child{
+        margin-top:40px;
+    }
+    canvas{
+        margin-left:13%;
+    }
+    .active{
+        background:yellow !important;
+    }
+</style>
+<body>
+    <div class="canvas">
+        <div class="gongneng">
+            <h2>功能</h2>
+            <div type="new">新建画布</div>
+            <div type="save">保存</div>
+            <div type="return">返回</div>
+        </div>
+        <div class="gongju">
+            <div class="paint">
+                <h2>工具</h2>
+                <div type="line" class="active">线</div>
+                <div type="rect">矩形</div>
+                <div type="circle">圆</div>
+                <div type="gradientCircle">渐变圆</div>
+                <div type="radialRect">圆角矩形</div>
+                <div type="gradientRadialRect">渐变圆角矩形</div>
+                <div type="poly">多边形</div>
+                <div type="del">橡皮擦</div>
+            </div>
+            <div class="way">
+                <div class="active fill" >填充</div>
+                <div class="stroke">轮廓</div>
+            </div>
+            <div class="color">
+                <p>填充色</p>
+                <input type="color"/>
+                <p>轮廓色</p>
+                <input type="color"/>
+            </div>
+            <div class="gradient">
+                <div>渐变</div>
+                <input type="color"/>
+                <input type="color"/>
+            </div>
+            <div>
+                <div>
+                    <span>多边形边数:</span>
+                    <input type="number" value=3 tian=n>
+                </div>
+                <div>
+                    <span>圆角弧度:</span>
+                    <input type="number" value=10 tian=radialR>
+                </div>
+                <div>
+                    <span>线宽:</span><input type="number" value=3 tian=lineWidth>
+                </div>
+                <div>
+                    <span>橡皮擦大小:</span><input type="number" value=10 tian=delSize>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!--<script>-->
+    <!--class Canvas{-->
+        <!--constructor(context){-->
+            <!--this.con=context;-->
+            <!--this.way='fill';-->
+            <!--this.lineWidth=4;-->
+            <!--this.fillColor='red';-->
+            <!--this.strokeColor='green';-->
+            <!--this.color=['red','blue'];-->
+            <!--this.radialR=10;-->
+            <!--this.n=3;-->
+            <!--this.delSize=20;-->
+        <!--}-->
+        <!--paintLine(ox,oy,nx,ny){-->
+            <!--this.con.beginPath();-->
+            <!--this.con.moveTo(ox,oy);-->
+            <!--this.con.lineTo(nx,ny);-->
+            <!--this.con.closePath();-->
+            <!--this.con.strokeStyle=this.strokeColor;-->
+            <!--this.con.lineWidth=this.lineWidth;-->
+            <!--this.con.stroke();-->
+        <!--}-->
+        <!--paintRect(ox,oy,nx,ny){-->
+            <!--this.con.beginPath();-->
+            <!--if(this.way=='fill'){-->
+                <!--this.con.fillStyle=this.fillColor;-->
+                <!--this.con.fillRect(ox,oy,nx-ox,ny-oy);-->
+            <!--}else{-->
+                <!--this.con.lineWidth=this.lineWidth;-->
+                <!--this.con.strokeStyle=this.strokeColor;-->
+                <!--this.con.strokeRect(ox,oy,nx-ox,ny-oy);-->
+            <!--}-->
+            <!--this.con.closePath();-->
+        <!--}-->
+        <!--paintCircle(ox,oy,nx,ny){-->
+            <!--this.con.beginPath();-->
+            <!--let r=Math.sqrt(Math.pow(ox-nx,2)+Math.pow(oy-ny,2));-->
+            <!--this.con.arc(ox,oy,r,0,Math.PI*2);-->
+            <!--this.con.closePath();-->
+            <!--if(this.way=='fill'){-->
+                <!--this.con.fillStyle=this.fillColor;-->
+                <!--this.con.fill();-->
+            <!--}else{-->
+                <!--this.con.strokeStyle=this.strokeColor;-->
+                <!--this.con.stroke();-->
+            <!--}-->
+        <!--}-->
+        <!--paintRadialCircle(ox,oy,nx,ny){-->
+            <!--this.con.beginPath();-->
+            <!--let r=Math.sqrt(Math.pow(ox-nx,2)+Math.pow(oy-ny,2));-->
+            <!--this.con.arc(ox,oy,r,0,Math.PI*2);-->
+            <!--this.con.closePath();-->
+            <!--let radial=this.con.createRadialGradient(ox,oy,0,ox,oy,r);-->
+            <!--radial.addColorStop(0,this.color[0]);-->
+            <!--radial.addColorStop(1,this.color[1]);-->
+            <!--this.con.fillStyle=radial;-->
+            <!--this.con.fill();-->
+        <!--}-->
+        <!--paintRadialRect(ox,oy,nx,ny){-->
+            <!--this.con.beginPath();-->
+            <!--this.con.moveTo(ox+this.radialR,oy);-->
+            <!--this.con.arcTo(nx,oy,nx,oy+this.radialR,this.radialR);-->
+            <!--this.con.arcTo(nx,ny,nx-this.radialR,ny,this.radialR);-->
+            <!--this.con.arcTo(ox,ny,ox,ny-this.radialR,this.radialR);-->
+            <!--this.con.arcTo(ox,oy,ox+this.radialR,oy,this.radialR);-->
+            <!--this.con.closePath();-->
+            <!--if(this.way=='fill'){-->
+                <!--this.con.fillStyle=this.fillColor;-->
+                <!--this.con.fill();-->
+            <!--}else{-->
+                <!--this.con.strokeStyle=this.strokeColor;-->
+                <!--this.con.stroke();-->
+            <!--}-->
+        <!--}-->
+        <!--paintLinearRadialRect(ox,oy,nx,ny){-->
+            <!--this.con.beginPath();-->
+            <!--this.con.moveTo(ox+this.radialR,oy);-->
+            <!--this.con.arcTo(nx,oy,nx,oy+this.radialR,this.radialR);-->
+            <!--this.con.arcTo(nx,ny,nx-this.radialR,ny,this.radialR);-->
+            <!--this.con.arcTo(ox,ny,ox,ny-this.radialR,this.radialR);-->
+            <!--this.con.arcTo(ox,oy,ox+this.radialR,oy,this.radialR);-->
+            <!--this.con.closePath();-->
+            <!--let linear=this.con.createLinearGradient(ox,oy,nx,oy);-->
+            <!--linear.addColorStop(0,this.color[0]);-->
+            <!--linear.addColorStop(1,this.color[1]);-->
+            <!--this.con.fillStyle=linear;-->
+            <!--this.con.fill();-->
+        <!--}-->
+        <!--paintPoly(ox,oy,nx,ny){-->
+            <!--this.con.beginPath();-->
+            <!--let r=Math.sqrt(Math.pow(ox-nx,2)+Math.pow(oy-ny,2));-->
+            <!--let ran=360/this.n;-->
+            <!--for(let i=0;i<this.n;i++){-->
+                <!--this.con.lineTo(ox+Math.sin((i*ran+45)*Math.PI/180)*r,oy+Math.cos((i*ran+45)*Math.PI/180)*r)-->
+            <!--}-->
+            <!--this.con.closePath();-->
+            <!--if(this.way=='fill'){-->
+                <!--this.con.fillStyle=this.fillColor;-->
+                <!--this.con.fill();-->
+            <!--}else{-->
+                <!--this.con.strokeStyle=this.strokeColor;-->
+                <!--this.con.stroke();-->
+            <!--}-->
+        <!--}-->
+        <!--delPaint(nx,ny){-->
+            <!--this.con.clearRect(nx-this.delSize/2,ny-this.delSize/2,this.delSize,this.delSize);-->
+        <!--}-->
+    <!--}-->
+
+
+
+
+    <!--let divs=document.querySelectorAll('div[type]');-->
+    <!--divs.forEach((val,index,arr)=>{-->
+        <!--val.onclick=function(){-->
+            <!--arr.forEach((value)=>{-->
+                <!--value.classList.remove('active');-->
+            <!--});-->
+            <!--current=val.getAttribute('type');-->
+            <!--val.classList.add('active');-->
+        <!--}-->
+    <!--});-->
+
+
+    <!--let xin=document.querySelector('div[type=new]');-->
+    <!--let save=document.querySelector('div[type=save]');-->
+    <!--let returns=document.querySelector('div[type=return]');-->
+    <!--let newobj;-->
+    <!--let arr=[];-->
+    <!--let context;-->
+    <!--let newcanvas;-->
+    <!--let current='line';-->
+    <!--xin.onclick=function(){-->
+        <!--let canvas=document.querySelectorAll('canvas');-->
+        <!--if(canvas.length){-->
+            <!--let result=window.confirm('确定保存？');-->
+            <!--if(result){-->
+                <!--let data=canvas[0].toDataURL('image/png');-->
+                <!--location.href=data.replace('data:image/png','data:stream/octet');-->
+            <!--}-->
+            <!--document.body.removeChild(canvas[0]);-->
+        <!--}-->
+        <!--newcanvas=document.createElement('canvas');-->
+        <!--newcanvas.width=1000;-->
+        <!--newcanvas.height=500;-->
+        <!--newcanvas.style.border='1px solid #000';-->
+        <!--document.body.appendChild(newcanvas);-->
+        <!--context=newcanvas.getContext('2d');-->
+        <!--newobj=new Canvas(context);-->
+            <!--newcanvas.onmousedown=function(e){-->
+                <!--let ox=e.offsetX;-->
+                <!--let oy=e.offsetY;-->
+                <!--newcanvas.onmousemove=function(e){-->
+                    <!--let nx=e.offsetX;-->
+                    <!--let ny=e.offsetY;-->
+                    <!--if(current=='del'){-->
+                        <!--newobj.delPaint(nx,ny);-->
+                    <!--}else{-->
+                        <!--context.clearRect(0,0,newcanvas.width,newcanvas.height);-->
+                        <!--if(arr.length>0){-->
+                            <!--context.putImageData(arr[arr.length-1],0,0)-->
+                        <!--}-->
+                        <!--switch(current){-->
+                            <!--case 'line': newobj.paintLine(ox,oy,nx,ny);-->
+                                <!--break;-->
+                            <!--case 'rect': newobj.paintRect(ox,oy,nx,ny);-->
+                                <!--break;-->
+                            <!--case 'circle': newobj.paintCircle(ox,oy,nx,ny);-->
+                                <!--break;-->
+                            <!--case 'gradientCircle': newobj.paintRadialCircle(ox,oy,nx,ny);-->
+                                <!--break;-->
+                            <!--case 'radialRect': newobj.paintRadialRect(ox,oy,nx,ny);-->
+                                <!--break;-->
+                            <!--case 'gradientRadialRect': newobj.paintLinearRadialRect(ox,oy,nx,ny);-->
+                                <!--break;-->
+                            <!--case 'poly': newobj.paintPoly(ox,oy,nx,ny);-->
+                                <!--break;-->
+                        <!--}-->
+                    <!--}-->
+                <!--}-->
+            <!--};-->
+            <!--newcanvas.onmouseup=function(){-->
+            <!--arr.push(context.getImageData(0,0,newcanvas.width,newcanvas.height));-->
+            <!--newcanvas.onmousemove=null;-->
+        <!--}-->
+
+    <!--};-->
+    <!--save.onclick=function(){-->
+        <!--let canvas=document.querySelectorAll('canvas');-->
+        <!--if(canvas.length){-->
+            <!--let result=window.confirm('确定保存？');-->
+            <!--if(result){-->
+                <!--let data=canvas[0].toDataURL('image/png');-->
+                <!--location.href=data.replace('data:image/png','data:stream/octet');-->
+            <!--}-->
+
+        <!--}-->
+    <!--};-->
+    <!--returns.onclick=function(){-->
+        <!--arr.pop();-->
+        <!--if(arr.length<1){-->
+            <!--alert('stop');-->
+            <!--context.clearRect(0,0,newcanvas.width,newcanvas.height);-->
+        <!--}else{-->
+            <!--context.putImageData(arr[arr.length-1],0,0);-->
+        <!--}-->
+    <!--};-->
+    <!--let fill=document.querySelector('div.fill');-->
+    <!--let stroke=document.querySelector('div.stroke');-->
+    <!--let ways=document.querySelectorAll('.way div');-->
+    <!--fill.onclick=function(){-->
+        <!--newobj.way='fill';-->
+        <!--for(let i=0;i<ways.length;i++){-->
+            <!--ways[i].classList.remove('active');-->
+        <!--}-->
+        <!--this.classList.add('active');-->
+    <!--};-->
+    <!--stroke.onclick=function(){-->
+        <!--newobj.way='stroke';-->
+        <!--for(let i=0;i<ways.length;i++){-->
+            <!--ways[i].classList.remove('active');-->
+        <!--}-->
+        <!--this.classList.add('active');-->
+    <!--};-->
+
+
+    <!--let color1=document.querySelectorAll('.color input[type=color]');-->
+    <!--color1.forEach((val,index)=>{-->
+        <!--val.onchange=function(){-->
+            <!--if(index==0){-->
+                <!--newobj.fillColor=val.value;-->
+                <!--console.log(newobj.fillColor)-->
+            <!--}else{-->
+                <!--newobj.strokeColor=val.value;-->
+            <!--}-->
+        <!--}-->
+    <!--});-->
+
+
+    <!--let color2=document.querySelectorAll('.gradient input[type=color]');-->
+    <!--color2.forEach((val,index)=>{-->
+        <!--val.onchange=function(){-->
+            <!--switch(index){-->
+                <!--case 0:newobj.color[0]=val.value;break;-->
+                <!--case 1:newobj.color[1]=val.value;break;-->
+            <!--}-->
+        <!--}-->
+    <!--});-->
+
+
+    <!--let shu=document.querySelectorAll('input[type=number]');-->
+    <!--shu.forEach((val,index)=>{-->
+        <!--val.onchange=function(){-->
+            <!--let aa=val.getAttribute('tian');-->
+            <!--newobj[aa]=val.value;-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->

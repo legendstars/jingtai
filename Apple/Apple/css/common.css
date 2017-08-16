@@ -1,0 +1,10 @@
+body,dl,dd,dt,ul,li,ol,dl,p,pre,h1,h2,h3,h4,h5,h6,form,input{
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-family:"SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+}	
+
+a{
+	text-decoration:none;
+}	

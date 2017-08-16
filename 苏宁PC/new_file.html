@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+//		let lis1=document.querySelectorAll('.article-four .title ul li');
+//		let clothingRight=document.querySelectorAll('section.onede');
+//		lis1.forEach(function(value,index){
+//			value.onmouseover=function(){
+//				for(let i=0;i<lis1.length;i++){
+//					lis1[i].classList.remove('first');
+//					clothingRight[i].classList.remove('clothingright');
+//				}
+//				this.classList.add('first');
+//				clothingRight[index].classList.add('clothingright');
+//			}
+//		})
+
+
+
+
+		function coll(parent3){
+			let n=0;
+			let box=parent3.querySelector('.clothing-banner');
+			//获取每一个图片
+			let lis4=parent3.querySelectorAll('.clothing-banner ul li');
+			//获取所有的下标
+			let as=parent3.querySelectorAll('.roll .banner-nav a');
+			//定义一个开关
+			let flag=true;
+			let m;
+			//时间函数，用来控制轮播图的滚动
+			let move=function(way='right'){
+				if(way=='right'){
+					n++;        //让下标加一
+					if(n>lis4.length-1){      //下标到达最大范围时，让它重新开始
+						n=0;
+					}
+				}
+				if(way=='left'){
+					n--;
+					if(n<0){
+						n=lis4.length-1;
+					}
+				}
+				//让每一个图片和下标分别显示
+				for(let i=0;i<lis4.length;i++){
+					//先让每一个图片和下标分别消失
+					lis4[i].classList.remove('first');
+					as[i].classList.remove('one')
+				}
+				//让图片和对应的下标依次显示
+				lis4[n].classList.add('first');
+				as[n].classList.add('one');
+			};
+			//运行时间函数
+			let t=setInterval(move,1500);
+			//添加鼠标移入事件
+			box.onmouseover=function(){
+				//清除时间函数
+				clearInterval(t);
+			};
+			//添加鼠标移出事件
+			box.onmouseout=function(){
+				//重新运行函数
+				t=setInterval(move,1500);
+			};
+			as.forEach(function(value,index){
+				//鼠标移入下标后的效果
+				value.onmouseover=function(){
+					//设置一个时间函数，让它每过0.2s秒触发
+					m=setTimeout(function(){
+						for(i=0;i<as.length;i++){
+							as[i].classList.remove('one');
+							lis4[i].classList.remove('first');
+						}
+						value.classList.add('one');
+						lis4[index].classList.add('first');
+						n=index;
+					},200)
+				};
+				//如果鼠标移入时间不超过0.2s，清除函数m
+				value.onmouseout=function(){
+					clearTimeout(m);
+				}
+			});
+			lis4.forEach(function(obj){
+				obj.addEventListener('transitionend',function(){
+					flag=true;
+				});
+			});
+			//点击左侧按钮后的效果
+			let leftbtns=document.querySelectorAll('.leftbtn-two');
+			leftbtns.forEach(function(value){
+				value.onclick=function(){
+					//如果开关开启
+					if(flag){
+						//让开关关闭；并且调用move函数
+						flag=false;
+						move('left');
+					}
+				};
+			});
+			//点击右侧按钮后的效果
+			let rightbths=document.querySelector('.rightbtn-two');
+			rightbths.forEach(function(value){
+				value.onclick=function(){
+						//如果开关开启
+						if(flag){
+							//让开关关闭；并且调用move函数
+							flag=false;
+							move('right');
+						}
+					};
+				}
+			);
+			lis4.forEach(function(obj){
+				//图片显示完成后开启开关
+				obj.addEventListener('transitionend',function(){
+					flag=true;
+				});
+			});
+		}
+		let parent3=document.querySelectorAll('.clothing-right-1');
+		parent3.forEach(function(value){
+			coll(value);
+		})
+
+
+
+
+
+
+
+
+		let act=document.querySelectorAll('.activity ul');
+let k=0;
+document.querySelector('.rightbtn-one').onclick=function(){
+	k++;
+	if(k>act.length-1){
+		k=0;
+	}
+	for(i=0;i<act.length;i++){
+		act[i].classList.remove('activityEnter');
+	}
+	act[k].classList.add('activityEnter');
+};
+
+document.querySelector('.rightbtn-one').onclick=function(){
+	k--;
+	if(k<0){
+		k=act.length-1;
+	}
+	for(i=0;i<act.length;i++){
+		act[i].classList.remove('activityEnter');
+	}
+	act[k].classList.add('activityEnter');
+}
+
+
+
+
+		let nav=document.querySelectorAll('.bar');
+		let divs=document.querySelectorAll('.bar div');
+		let sec=document.querySelectorAll('.bar section');
+		let spans=document.querySelectorAll('.bar span');
+		nav.forEach(function(value,index){
+			value.onmouseover=function(){
+				for(let i=0;i<nav.length;i++){
+					divs[index].style.display='none';
+					spans[index].style.transform='rotate(0deg)';
+					section[index].style.height='0';
+				}
+				divs[index].style.display='block';
+				section[index].style.height='auto';
+				spans[index].style.transform='rotate(180deg)';
+			}
+		})
+
+
+
+		let lists=document.querySelectorAll('ul.list .lists')
+		let lis13=document.querySelectorAll('ul.list li');
+		lis13.forEach(function(value,index){
+			value.onmouseover=function(){
+				for(i=0;i<lists.length;i++){
+					lists[i].classList.remove('lists')
+				}
+			lists[index].classList.add('lists')	;
+			}
+		})
+	</script>
+	<body>
+	</body>
+</html>

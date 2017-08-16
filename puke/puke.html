@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>扑克</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/puke.js"></script>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        list-style: none;
+    }
+    body{
+        background:url('img/deck.jpg');
+    }
+    .box{
+        width:700px;
+        height:600px;
+        margin:0 auto;
+        position: relative;
+    }
+    .left,.right{
+        position:absolute;
+        left:50%;
+        width:120px;
+        height:40px;
+        margin-left:-60px;
+        text-align: center;
+        line-height:40px;
+        font-size:30px;
+        color:#fff;
+        font-family:'宋体';
+        border-radius: 4px;;
+    }
+    .left{
+        bottom:10px;
+        background:rgba(255,255,255,.3);
+    }
+    .right{
+        bottom:50px;
+        background: rgba(0,0,0,.6);
+    }
+    .pai{
+        opacity:0;
+        position:absolute;
+        width:90px;
+        height:130px;
+        background-size:100% ;
+        transition:margin-top .4s ease;
+    }
+    .active{
+        border:1px solid red;
+        box-sizing: border-box;
+        margin-top:-20px;
+    }
+</style>
+<body>
+    <div class="box">
+        <ul></ul>
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+    </div>
+</body>
+</html>

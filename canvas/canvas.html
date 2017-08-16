@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        list-style: none;
+    }
+    canvas{
+        border:1px solid #000;
+    }
+</style>
+<body>
+    <canvas width="800" height="400"></canvas>
+    <button>上一个</button>
+    <button>画矩形</button>
+    <button>橡皮擦</button>
+    <button>画线</button>
+    <button>画圆</button>
+    <button>多边形</button>
+    <button>圆角矩形</button>
+    <button>文本</button>
+    <input type="file"/>
+</body>
+</html>
+<script>
+    let canvas=document.querySelector('canvas');
+    let paint=canvas.getContext('2d');
+    let arr=[];
+    let fun='rect';
+    let ox,oy;
+    canvas.onmousedown=function(e){
+        ox= e.offsetX;
+        oy= e.offsetY;
+        canvas.onmousemove=function(e){
+            let nx= e.offsetX;
+            let ny= e.offsetY;
+            if(fun=='rect'){
+                paint.clearRect(0,0,canvas.width,canvas.height);
+                if(arr.length>0) {
+                    paint.putImageData(arr[arr.length-1],0,0);
+                }
+                paint.beginPath();
+                let linear=paint.createLinearGradient(ox,oy,nx,oy);
+                linear.addColorStop(0,'red');
+                linear.addColorStop(0.5,'green');
+                linear.addColorStop(1,'yellow');
+                paint.fillStyle=linear;
+                paint.fillRect(ox,oy,nx-ox,ny-oy);
+                paint.closePath();
+            }else if(fun=='cachu'){
+                paint.clearRect(nx-10,ny-10,20,20);
+            }else if(fun=='line'){
+                paint.clearRect(0,0,canvas.width,canvas.height);
+                if(arr.length>0) {
+                    paint.putImageData(arr[arr.length-1],0,0);
+                }
+                paint.beginPath();
+                paint.moveTo(ox,oy);
+                paint.lineTo(nx,ny);
+                paint.closePath();
+                paint.stroke();
+            }else if(fun=='circle'){
+                paint.clearRect(0,0,canvas.width,canvas.height);
+                if(arr.length>0) {
+                    paint.putImageData(arr[arr.length-1],0,0);
+                }
+                paint.beginPath();
+                let r=Math.sqrt(Math.pow(ox-nx,2)+Math.pow(oy-ny,2));
+                paint.arc(ox,oy,r,0,Math.PI*2);
+                paint.closePath();
+                let radial=paint.createRadialGradient(ox,oy,0,ox,oy,r);
+                radial.addColorStop(0,'red');
+                radial.addColorStop(0.2,'orange');
+                radial.addColorStop(0.4,'yellow');
+                radial.addColorStop(0.6,'green');
+                radial.addColorStop(0.8,'blue');
+                radial.addColorStop(1,'purple');
+                paint.fillStyle=radial;
+                paint.fill();
+            }else if(fun=='poly'){
+                paint.clearRect(0,0,canvas.width,canvas.height);
+                if(arr.length>0) {
+                    paint.putImageData(arr[arr.length-1],0,0);
+                }
+                paint.beginPath();
+                let r=Math.sqrt(Math.pow(ox-nx,2)+Math.pow(oy-ny,2));
+                let n=6;
+                let ran=360/n;
+                for(let i=0;i<n;i++){
+                    paint.lineTo(ox+Math.sin((i*ran+45)*Math.PI/180)*r,oy+Math.cos((i*ran+45)*Math.PI/180)*r)
+                }
+                paint.closePath();
+                paint.stroke();
+            }else if(fun=='radialrect'){
+                    paint.clearRect(0,0,canvas.width,canvas.height);
+                    if(arr.length>0) {
+                        paint.putImageData(arr[arr.length-1],0,0);
+                    }
+                    paint.beginPath();
+                    let r=30;
+                    paint.moveTo(ox+r,oy);
+                    paint.arcTo(nx,oy,nx,oy+r,r);
+                    paint.arcTo(nx,ny,nx-r,ny,r);
+                    paint.arcTo(ox,ny,ox,ny- r,r);
+                    paint.arcTo(ox,oy,ox+r,oy,r);
+                    paint.closePath();
+                    let linear=paint.createLinearGradient(ox,oy,nx,oy);
+                    linear.addColorStop(0,'red');
+                    linear.addColorStop(0.5,'green');
+                    linear.addColorStop(1,'yellow');
+                    paint.fillStyle=linear;
+                    paint.fill();
+            }
+        }
+    };
+    canvas.onmouseup=function(){
+        if(fun=='text'){
+            let input=window.prompt('请输入文本');
+            paint.fillStyle='red';
+            paint.textAlign='center';
+            paint.font='20px 微软雅黑 bold';
+            paint.fillText(input,ox,oy);
+        }
+        canvas.onmousemove=null;
+        arr.push(paint.getImageData(0,0,canvas.width,canvas.height));
+    };
+    document.querySelector('button').onclick=function(){
+        arr.pop();
+        if(arr.length<1){
+            paint.clearRect(0,0,canvas.width,canvas.height);
+            alert('不能再返回了');
+        }else{
+            paint.putImageData(arr[arr.length-1],0,0) ;
+        }
+    };
+    document.querySelectorAll('button')[1].onclick=function(){
+        fun='rect';
+    };
+    document.querySelectorAll('button')[2].onclick=function(){
+        fun='cachu';
+    };
+    document.querySelectorAll('button')[3].onclick=function(){
+        fun='line';
+    };
+    document.querySelectorAll('button')[4].onclick=function(){
+        fun='circle';
+    };
+    document.querySelectorAll('button')[5].onclick=function(){
+        fun='poly';
+    };
+    document.querySelectorAll('button')[6].onclick=function(){
+        fun='radialrect';
+    };
+    document.querySelectorAll('button')[7].onclick=function(){
+        fun='text';
+    };
+    document.querySelector('input[type=file]').onchange=function(){
+        let file=this.files[0];
+        console.log(file);
+        let f=new FileReader();
+        console.log(f);
+        f.readAsDataURL(file);
+        f.onload=function(){
+            let img=document.createElement('img');
+            img.src=this.result;
+            paint.drawImage(img,0,0,400,200);
+            arr.push(paint.getImageData(0,0,canvas.width,canvas.height));
+        }
+    }
+
+
+
+
+
+//    paint.beginPath();
+//    paint.fillStyle='red';
+//    paint.fillRect(40,40,200,100);
+//    paint.closePath();
+//    paint.beginPath();
+//    let linear=paint.createLinearGradient(200,250,400,250);
+//    linear.addColorStop(0,'red');
+//    linear.addColorStop(0.5,'green');
+//    linear.addColorStop(1,'yellow');
+//    paint.fillStyle=linear;
+//    paint.fillRect(200,100,200,100);
+//    paint.closePath();
+//    paint.beginPath();
+//    paint.strokeStyle='purple';
+//    paint.lineWidth=10;
+//    paint.shadowColor='yellow';
+//    paint.shadowBlur=10;
+//    paint.shadowOffsetX=5;
+//    paint.shadowOffsetY=5;
+//    paint.strokeRect(200,100,200,100);
+//    paint.closePath();
+</script>

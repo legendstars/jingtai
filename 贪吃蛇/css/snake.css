@@ -1,0 +1,19 @@
+.box{
+    width:600px;
+    height:600px;
+    border:1px solid #000;
+    margin:20px auto;
+}
+.box div{
+    width:30px;
+    height:30px;
+    border:1px solid #000;
+    box-sizing: border-box;
+    float:left;
+}
+.she{
+    background:blue;
+}
+.food{
+    background:red;
+}

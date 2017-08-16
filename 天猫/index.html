@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="x5-orientation" content="portrait | landscape" />
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="full-screen" content="yes">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css"/>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_p4g9pr6zwmm9rudi.css"/>
+    <script src="js/swiper-3.4.2.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/demoUtils.js"></script>
+</head>
+<style>
+    .sw1 .swiper-slide img{
+        height:180px;
+    }
+    .sw2{
+        margin-top:5px;
+        height:108px;
+    }
+    .sw2 .swiper-slide img{
+        /*height:108px;*/
+        width:100%;
+    }
+    .sw3{
+        height:40px;
+    }
+    .sw3 .swiper-wrapper .swiper-slide{
+        height:40px;
+        margin-bottom:0;
+    }
+    .sw3 .swiper-wrapper .swiper-slide .sub-title{
+        color:#ff2f2f;
+    }
+
+</style>
+<body onload="loaded()">
+<div class="nav">
+    <ul>
+        <li>
+            <a href="" class="iconfont icon-gongneng"></a>
+        </li>
+        <li>
+            <form action="">
+                <input type="text" placeholder="搜索商品/店铺"/>
+                <input type="submit" />
+            </form>
+        </li>
+        <li>
+            <a href="">登录</a>
+        </li>
+    </ul>
+</div>
+<div id="wrapper">
+    <div id="scroller">
+
+
+    <!-- banner-->
+    <div class="banner">
+        <div class="swiper-container sw1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/banner.webp" alt=""/></div>
+                <div class="swiper-slide"><img src="img/banner1.webp" alt=""/></div>
+                <div class="swiper-slide"><img src="img/banner2.webp" alt=""/></div>
+                <div class="swiper-slide"><img src="img/banner3.webp" alt=""/></div>
+                <div class="swiper-slide"><img src="img/banner4.webp" alt=""/></div>
+                <div class="swiper-slide"><img src="img/banner5.webp" alt=""/></div>
+                <div class="swiper-slide"><img src="img/banner6.webp" alt=""/></div>
+                <div class="swiper-slide"><img src="img/banner7.webp" alt=""/></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+
+    <!-- 功能-->
+    <ul class="list">
+        <li>
+            <a href="">
+                <img src="img/1.webp" alt=""/>
+                <h6>积分乐园</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/2.webp" alt=""/>
+                <h6>充值中心</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/3.webp" alt=""/>
+                <h6>天猫国际</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/4.webp" alt=""/>
+                <h6>聚划算</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/5.webp" alt=""/>
+                <h6>天猫超市</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/6.webp" alt=""/>
+                <h6>免费试用</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/7.webp" alt=""/>
+                <h6>尤物</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/8.webp" alt=""/>
+                <h6>粉丝趴</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/9.webp" alt=""/>
+                <h6>装备升级</h6>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/10.webp" alt=""/>
+                <h6>分类</h6>
+            </a>
+        </li>
+    </ul>
+    <ul class="hot">
+        <li>
+            <a href="">
+                <img src="img/hot.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <img src="img/horn.webp" alt=""/>
+            <a href="">
+                <!--<p>皇族金辉泰国香米满150减10</p>-->
+                <!--<p>满150减10+满299-30</p>-->
+                <div class="swiper-container sw3">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="title">皇族金辉泰国香米满150减10</div>
+                            <div class="sub-title">满150减10+满299-30</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="title">史密斯超级大牌日，AR互动抢0元试用</div>
+                            <div class="sub-title">最多优惠2450元+抢400安装补贴</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="title">男装春夏新品钜惠，买二送一</div>
+                            <div class="sub-title">精选商品低至5折+满299减40</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="title">轻奢美食品质生鲜，黄金鲽鱼柳19.9</div>
+                            <div class="sub-title">全场满88包邮+买二付一</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="title">天猫上春茶，第二件半价</div>
+                            <div class="sub-title">满299减100+茶王1元起</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <!-- 滚动-->
+    <div class="swiper-container sw2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/roll-1.webp" alt=""/></div>
+            <div class="swiper-slide"><img src="img/roll-2.webp" alt=""/></div>
+            <div class="swiper-slide"><img src="img/roll-3.webp" alt=""/></div>
+            <div class="swiper-slide"><img src="img/roll-4.webp" alt=""/></div>
+        </div>
+    </div>
+    <!-- 必抢-->
+    <div class="component">
+        <span class="vline-left"></span>
+        <img src="img/fire.webp" alt=""/>
+        <span class="title">必抢</span>
+        <span class="vline-right"></span>
+    </div>
+    <ul class="cell">
+        <li>
+            <a href="">
+                <h5>今日必抢</h5>
+                <img src="img/cell-1.webp" alt=""/>
+                <span>￥269</span>
+                <span class="sale-point">￥299</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <h5>巨超值</h5>
+                <img src="img/cell-2.webp" alt=""/>
+                <span class="price">￥420</span>
+                <span class="sale-point">￥420</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <h5>进口必抢</h5>
+                <img src="img/cell-3.webp" alt=""/>
+                <span class="price">￥1725</span>
+                <span class="sale-point">￥3450</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <h5>型男咖</h5>
+                <img src="img/cell-4.webp" alt=""/>
+                <span class="price">￥2599</span>
+                <span class="sale-point">￥4050</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <h5>女神范</h5>
+                <img src="img/cell-5.webp.jpg" alt=""/>
+                <span class="price">￥270</span>
+                <span class="sale-point">￥458</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <h5>爱囤货</h5>
+                <img src="img/cell-6.webp" alt=""/>
+                <span class="price">￥56</span>
+                <span class="sale-point">￥56</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <h5>焕新家</h5>
+                <img src="img/cell-7.webp" alt=""/>
+                <span class="price">￥6489</span>
+                <span class="sale-point">￥12978</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <h5>美食家</h5>
+                <img src="img/cell-8.webp" alt=""/>
+                <span class="price">￥69</span>
+                <span class="sale-point">￥159</span>
+            </a>
+        </li>
+    </ul>
+    <!-- 品牌资讯-->
+    <div class="component">
+        <span class="vline-left" id="left-1"></span>
+        <img src="img/information.webp" alt=""/>
+        <span class="title" id="title-1">品牌资讯</span>
+        <span class="vline-right" id="right-1"></span>
+    </div>
+    <ul class="information">
+        <li>
+            <a href="">
+                <img src="img/information-1.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/information-2.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/information-3.webp" alt=""/>
+            </a>
+        </li>
+    </ul>
+    <a href="" class="link-img">
+        <img src="img/information-4.webp" alt=""/>
+    </a>
+    <!-- 便捷生活-->
+    <div class="component">
+        <span class="vline-left" id="left-2"></span>
+        <img src="img/life.webp" alt=""/>
+        <span class="title" id="title-2">便捷生活</span>
+        <span class="vline-right" id="right-2"></span>
+    </div>
+    <ul class="life">
+        <li>
+            <a href="">
+                <img src="img/life-1.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/life-2.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/life-3.webp" alt=""/>
+            </a>
+        </li>
+    </ul>
+    <!-- 国际海购-->
+    <div class="component">
+        <span class="vline-left" id="left-3"></span>
+        <img src="img/sea.webp" alt=""/>
+        <span class="title" id="title-3">国际海购</span>
+        <span class="vline-right" id="right-3"></span>
+    </div>
+    <ul class="sea">
+        <li>
+            <a href="">
+                <img src="img/sea-1.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/sea-2.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/sea-3.webp" alt=""/>
+            </a>
+        </li>
+    </ul>
+    <!-- 精选市场-->
+    <div class="component">
+        <span class="vline-left" id="left-4"></span>
+        <img src="img/market.webp" alt=""/>
+        <span class="title" id="title-4">精选市场</span>
+        <span class="vline-right" id="right-4"></span>
+    </div>
+    <ul class="market">
+        <li>
+            <a href="">
+                <img src="img/market-1.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/market-2.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/market-3.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/market-4.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/market-5.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/market-6.webp" alt=""/>
+            </a>
+        </li>
+    </ul>
+    <!-- 爱生活-->
+    <div class="component">
+        <span class="vline-left" id="left-5"></span>
+        <img src="img/love_life.webp" alt=""/>
+        <span class="title" id="title-5">爱生活</span>
+        <span class="vline-right" id="right-5"></span>
+    </div>
+    <ul class="love-life">
+        <li>
+            <a href="">
+                <img src="img/love_life-1.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/love_life-2.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/love_life-3.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/love_life-4.webp" alt=""/>
+            </a>
+        </li>
+    </ul>
+    <!-- 热门行业-->
+    <div class="component">
+        <span class="vline-left" id="left-6"></span>
+        <img src="img/industry.webp" alt=""/>
+        <span class="title" id="title-6">热门行业</span>
+        <span class="vline-right" id="right-6"></span>
+    </div>
+    <ul class="industry">
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-1.jpg" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+               <div class="title-con">
+                   <h5>天猫女装</h5>
+                   <p>品质优选</p>
+               </div>
+                <img src="img/industry-2.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-3.jpg" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-4.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-5.jpg" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-6.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-7.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-8.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-9.webp" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="title-con">
+                    <h5>天猫女装</h5>
+                    <p>品质优选</p>
+                </div>
+                <img src="img/industry-10.webp" alt=""/>
+            </a>
+        </li>
+    </ul>
+    <!--品牌旗舰-->
+    <div class="component">
+        <span class="vline-left" id="left-7"></span>
+        <img src="img/flagship.webp" alt=""/>
+        <span class="title" id="title-7">品牌旗舰</span>
+        <span class="vline-right" id="right-7"></span>
+    </div>
+    <ul class="flagship">
+        <li>
+            <a href="">
+                <div class="flagship-one">
+                    <img src="img/flagship-1.webp" alt=""/>
+                    <img src="img/flagship-2.webp" alt=""/>
+                    <img src="img/flagship-3.webp" alt=""/>
+                </div>
+                <div class="flagship-two">
+                    <img src="img/sign-1.webp.jpg" alt=""/>
+                    <div class="store">
+                        <h6>izop官方旗舰店</h6>
+                        <p>2.7万粉丝</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="flagship-one">
+                    <img src="img/flagship-4.webp" alt=""/>
+                    <img src="img/flagship-5.webp" alt=""/>
+                    <img src="img/flagship-6.webp" alt=""/>
+                </div>
+                <div class="flagship-two">
+                    <img src="img/sign-2.webp.jpg" alt=""/>
+                    <div class="store">
+                        <h6>izop官方旗舰店</h6>
+                        <p>2.7万粉丝</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="flagship-one">
+                    <img src="img/flagship-7.webp" alt=""/>
+                    <img src="img/flagship-8.webp" alt=""/>
+                    <img src="img/flagship-9.webp" alt=""/>
+                </div>
+                <div class="flagship-two">
+                    <img src="img/sign-3.webp.jpg" alt=""/>
+                    <div class="store">
+                        <h6>izop官方旗舰店</h6>
+                        <p>2.7万粉丝</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="flagship-one">
+                    <img src="img/flagship-10.webp" alt=""/>
+                    <img src="img/flagship-11.webp.jpg" alt=""/>
+                    <img src="img/flagship-12.webp.jpg" alt=""/>
+                </div>
+                <div class="flagship-two">
+                    <img src="img/sign-4.webp.jpg" alt=""/>
+                    <div class="store">
+                        <h6>izop官方旗舰店</h6>
+                        <p>2.7万粉丝</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <!--猜你喜欢-->
+    <div class="component">
+        <span class="vline-left" id="left-8"></span>
+        <span class="title" id="title-8">猜你喜欢</span>
+        <span class="vline-right" id="right-8"></span>
+    </div>
+    <ul class="guess">
+        <li>
+            <a href="">
+                <img src="img/guess-1.webp" alt=""/>
+                <p>[热销]HLA/海澜之家水洗休闲裤春季热卖男装微弹修身</p>
+                <span>￥168.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/guess-2.webp" alt=""/>
+                <p>[热销]HLA/海澜之家水洗休闲裤春季热卖男装微弹修身</p>
+                <span>￥168.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/guess-3.webp" alt=""/>
+                <p>[热销]HLA/海澜之家水洗休闲裤春季热卖男装微弹修身</p>
+                <span>￥168.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/guess-4.webp" alt=""/>
+                <p>[热销]HLA/海澜之家水洗休闲裤春季热卖男装微弹修身</p>
+                <span>￥168.0</span>
+            </a>
+        </li>
+    </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var myScroll;
+
+    function loaded () {
+        myScroll = new IScroll('#wrapper', {
+            scrollbars: true,
+            mouseWheel: true,
+            interactiveScrollbars: true,
+            shrinkScrollbars: 'scale',
+            fadeScrollbars: true
+        });
+    }
+
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+        capture: false,
+        passive: false
+    } : false);
+
+    var swiper = new Swiper('.sw1', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 0,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+    var swiper1 = new Swiper('.sw2', {
+        slidesPerView: 2,
+        paginationClickable: true,
+        spaceBetween: 2
+    });
+    var swiper2 = new Swiper('.sw3', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        paginationClickable: false,
+        spaceBetween:0,
+        mousewheelControl: false,
+        autoplay:2500,
+        loop: true
+    });
+
+</script>

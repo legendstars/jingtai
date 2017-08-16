@@ -1,0 +1,211 @@
+
+*{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+body,html{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+
+}
+body{
+    background-image:url("../bigimg/5.jpg");
+    background-size: cover ;
+    background-position:center;
+}
+.box{
+    width:1000px;
+    height:600px;
+    margin:20px auto;
+    position:relative;
+}
+.box .list{
+    width:100%;
+    height:80%;
+    background:rgba(0,0,0,.4);
+    text-align: center;
+    color:#fff;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:20;
+}
+canvas{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    margin-left:-300px;
+}
+.box .list .liebiao{
+    width:100%;
+    height:100%;
+    display:none;
+    position:relative;
+}
+.list .h1{
+    width:70%;
+    margin:0 auto;
+}
+.list ul{
+    width:70%;
+    height:40px;
+    margin:0 auto;
+}
+.list ul li.active{
+    background: rgba(255,255,255,.5);
+}
+.list ul li{
+    width:100%;
+    height:100%;
+    text-align: center;
+}
+.list ul li span{
+    display: block;
+    width:20%;
+    height:40px;
+    float: left;
+    line-height: 40px;
+    overflow: hidden;
+}
+.box .btn{
+    width:100%;
+    height:20%;
+    background: rgba(0,0,0,.6);
+    z-index:40;
+    position:absolute;
+    left:0;
+    bottom:0;
+}
+.btn ul{
+    width:20%;
+    height:100%;
+    float:left;
+
+}
+.btn ul li{
+    width:33.3333%;
+    height:100%;
+    float:left;
+    text-align: center;
+    line-height:120px ;
+}
+.btn ul li span{
+    color:#fff;
+    font-size:30px;
+}
+.btn ul li.play span{
+    font-size:40px;
+
+}
+.btn ul li span:hover{
+    text-shadow: 0 0 10px rgba(255,255,255,.4);
+
+}
+.btn .img{
+    width:15%;
+    height:100%;
+    float:left;
+    background-image:url('../img/1.jpg');
+    background-size: cover;
+    background-position:center;
+}
+.btn .status{
+    width:40%;
+    height:100%;
+    float:left;
+    text-align: center;
+}
+.btn .status > .xinxi{
+    margin-top:5px;
+    color:#fff;
+}
+.btn .status .progress{
+    width:80%;
+    height:100%;
+    margin:20px auto 0;
+}
+.time{
+    color:#fff;
+}
+.tiao{
+    width:100%;
+    height:10px;
+
+    background:rgba(0,0,0,.3);
+    position:relative;
+
+}
+.tiao .load{
+    width:0;
+    height:100%;
+    background:rgba(0,0,0,.4);
+    position:absolute;
+    left:0;
+    top:0;
+    transition:width 1s linear;
+}
+.tiao .played{
+    width:0;
+    height:100%;
+    background:rgba(255,255,255,.3);
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:100;
+}
+.tiao .circle{
+    position:absolute;
+    left:-10px;
+    top:-5px;
+    border-radius: 50%;
+    width:20px;
+    height:20px;
+    background:#fff;
+    z-index:200;
+}
+.btn .yinliang{
+    width:20%;
+    height:100%;
+    float:left;
+}
+.btn .yinliang span{
+    line-height:120px;
+    font-size:20px;
+    width:15%;
+    height:100%;
+    display:block;
+    float:left;
+}
+.btn .yinliang .progress{
+    height:100%;
+    width:80%;
+    float:left;
+    margin-top:55px;
+}
+.btn .menu{
+    width:5%;
+    height:100%;
+    float:left;
+    text-align: center;
+}
+.btn .menu span{
+    color:#fff;
+    line-height:120px;
+    font-size:30px;
+}
+.lyrics{
+    width:100%;
+    height:80%;
+    position:absolute;
+    left:0;
+    top:0;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    font-size:18px;
+}
+.lyrics .active{
+    color:#000;
+}

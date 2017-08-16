@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    .box{
+        width:800px;
+        height:auto;
+        margin:30px auto;
+    }
+    table{
+        width:100%;
+        height:auto;
+        table-layout: fixed;
+        border-collapse: collapse;
+    }
+    tr{
+        height:40px;
+        border-bottom: 1px solid #888;
+    }
+    td{
+        width:25%;
+        text-align:center;
+        line-height:40px;
+        border:1px solid #888;
+    }
+    .del{
+        width:60px;
+        height:32px;
+        padding:4px 0;
+        background:red;
+        margin:0 auto;
+        box-sizing: border-box;
+        border-radius: 4px;
+        line-height: 32px;
+    }
+    .add{
+        width:80px;
+        height:40px;
+        text-align:center;
+        line-height: 40px;
+        font-size:40px;
+        color:#fff;
+        background:green;
+        margin:20px auto;
+        border-radius: 4px;
+    }
+</style>
+<body>
+    <div class="box">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>姓名</th>
+                <th>成绩</th>
+                <th>年龄</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>90</td>
+                <td>20</td>
+                <td>
+                    <div class="del">删除</div>
+                </td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>86</td>
+                <td>19</td>
+                <td>
+                    <div class="del">删除</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="add">+</div>
+</body>
+</html>
+<script>
+    let add=document.querySelector('.add');
+    let tbody=document.querySelector('tbody');
+    add.onclick=function(){
+        tbody.innerHTML+=`<tr>
+            <td>李四</td>
+            <td>86</td>
+            <td>19</td>
+            <td>
+                <div class="del">删除</div>
+            </td>
+        </tr>`;
+    };
+    let del=document.querySelectorAll('.del');
+    let table=document.querySelector('table');
+    table.onclick=function(e){
+        let obj= e.target;
+        if(obj.className=='del'){
+            let tr=obj.parentNode.parentNode;
+            tbody.removeChild(tr);
+        }else if(obj.nodeName=='TD'&&obj.children.length==0){
+            let value=obj.innerHTML;
+            obj.innerHTML='';
+            let input=document.createElement('input');
+            input.style.height='40px';
+            input.value=value;
+            obj.appendChild(input);
+            input.focus();
+            input.onblur=function(){
+                if(input.value){
+                    let val=this.value;
+                    obj.innerHTML=val;
+                }else{
+                    obj.innerHTML=value;
+                }
+            }
+        }
+    }
+</script>
